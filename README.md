@@ -82,7 +82,7 @@ vsim -voptargs=+acc work.tb_half_adder_axi_master_slave
 add_wave
 run -all
 ```
-
+![screenshot](https://github.com/gharishkumar/half_adder/blob/main/half_adder_axi_master_slave/waveform/screenshot.png?raw=true)
 ### Step 4: View the Results
 The simulation will print the test results in the terminal. If using a waveform viewer like GTKWave, you can generate a VCD file and view the waveforms:
 
