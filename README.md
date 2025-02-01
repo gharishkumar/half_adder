@@ -25,6 +25,11 @@ I tried to be compliant with Advanced eXtensible Interface 4 stream (AXI4 - stre
 ## Repository Structure  
 
 half_adder_axi_master_slave/  
+├── fsm/ # RTL design files  
+│ └── half_adder_axi_stream_state_machine.png  
+│ └── half_adder_axi_stream_state_machine.svg  
+├── ports/ # RTL design files  
+│ └── half_adder_axi_master_slave.svg  
 ├── rtl/ # RTL design files  
 │ └── half_adder_axi_master_slave.v  
 ├── tb/ # Testbench files  
@@ -34,6 +39,47 @@ half_adder_axi_master_slave/
 │ └── waveform.vcd  
 ├── README.md # This file  
 └── .gitignore # Git ignore file  
+
+---
+
+## Diagram
+![Diagram](https://github.com/gharishkumar/half_adder/raw/refs/heads/main/half_adder_axi_master_slave/ports/half_adder_axi_master_slave.svg "Diagram")
+
+---
+
+## Ports
+
+| Port name      | Direction | Type | Description |
+| -------------- | --------- | ---- | ----------- |
+| clk            | input     | wire | clock       |
+| reset          | input     | wire | reset       |
+| s_a_tvalid     | input     | wire | denotes `s_a_tdata` is valid |
+| s_a_tdata      | input     | wire | `a` data    |
+| s_a_tready     | output    | reg  | ack that `s_a_tdata` in received |
+| s_b_tvalid     | input     | wire | denotes `s_b_tdata` is valid |
+| s_b_tdata      | input     | wire | `b` data    |
+| s_b_tready     | output    | reg  | ack that `s_b_tdata` in received |
+| m_sum_tvalid   | output    | reg  | denotes `m_sum_tdata` is valid |
+| m_sum_tdata    | output    | reg  | `sum` data  |
+| m_sum_tready   | input     | wire | ack that `m_sum_tdata` in received |
+| m_carry_tvalid | output    | reg  | denotes `m_carry_tdata` is valid |
+| m_carry_tdata  | output    | reg  | `carry` data |
+| m_carry_tready | input     | wire | ack that `m_carry_tdata` in received |
+
+---
+
+## Internal reg
+
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| a_reg         | reg       | to store s_a_tdata |
+| b_reg         | reg       | to store s_b_tdata |
+
+---
+
+## State machines
+
+![half_adder_axi_stream_state_machine]( https://github.com/gharishkumar/half_adder/raw/refs/heads/main/half_adder_axi_master_slave/fsm/half_adder_axi_stream_state_machine.svg "State Diagram")
 
 ---
 
