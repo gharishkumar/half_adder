@@ -7,11 +7,15 @@ This repository contains a Verilog implementation of a half adder with AXI4-Stre
 ## Table of Contents
 1. [Overview](#overview)
 2. [Repository Structure](#repository-structure)
-3. [Prerequisites](#prerequisites)
-4. [Simulation Steps](#simulation-steps)
-5. [Expected Results](#expected-results)
-6. [Contributing](#contributing)
-7. [License](#license)
+3. [Diagram](#diagram)
+4. [Ports](#ports)
+5. [Internal reg](#internal-reg)
+6. [State Machines](#state-machines)
+7. [Prerequisites](#prerequisites)
+8. [Simulation Steps](#simulation-steps)
+9. [Expected Results](#expected-results)
+10. [Contributing](#contributing)
+11. [License](#license)
 
 ---
 
@@ -26,17 +30,17 @@ I tried to be compliant with Advanced eXtensible Interface 4 stream (AXI4 - stre
 
 half_adder_axi_master_slave/  
 ├── fsm/ # RTL design files  
-│ └── half_adder_axi_stream_state_machine.png  
-│ └── half_adder_axi_stream_state_machine.svg  
+│&emsp;&emsp; └── half_adder_axi_stream_state_machine.png  
+│&emsp;&emsp; └── half_adder_axi_stream_state_machine.svg  
 ├── ports/ # RTL design files  
-│ └── half_adder_axi_master_slave.svg  
+│&emsp;&emsp; └── half_adder_axi_master_slave.svg  
 ├── rtl/ # RTL design files  
-│ └── half_adder_axi_master_slave.v  
+│&emsp;&emsp; └── half_adder_axi_master_slave.v  
 ├── tb/ # Testbench files  
-│ └── tb_half_adder_axi_master_slave.v  
+│&emsp;&emsp; └── tb_half_adder_axi_master_slave.v  
 ├── waveform/ # Waveform files  
-│ └── screenshot.png  
-│ └── waveform.vcd  
+│&emsp;&emsp; └── screenshot.png  
+│&emsp;&emsp; └── waveform.vcd  
 ├── README.md # This file  
 └── .gitignore # Git ignore file  
 
@@ -72,8 +76,8 @@ half_adder_axi_master_slave/
 
 | Name          | Type      | Description |
 | ------------- | --------- | ----------- |
-| a_reg         | reg       | to store s_a_tdata |
-| b_reg         | reg       | to store s_b_tdata |
+| a_reg         | reg       | to store `s_a_tdata` |
+| b_reg         | reg       | to store `s_b_tdata` |
 
 ---
 
@@ -128,7 +132,10 @@ vsim -voptargs=+acc work.tb_half_adder_axi_master_slave
 add_wave
 run -all
 ```
-![screenshot](https://github.com/gharishkumar/half_adder/blob/main/half_adder_axi_master_slave/waveform/screenshot.png?raw=true)
+#### QuestaSim
+![screenshot](https://github.com/gharishkumar/half_adder/blob/main/half_adder_axi_master_slave/waveform/questasim.png?raw=true)
+#### Vivado
+![screenshot](https://github.com/gharishkumar/half_adder/blob/main/half_adder_axi_master_slave/waveform/vivado.png?raw=true)
 ### Step 4: View the Results
 The simulation will print the test results in the terminal. If using a waveform viewer like GTKWave, you can generate a VCD file and view the waveforms:
 
